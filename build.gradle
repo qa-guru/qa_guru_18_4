@@ -1,15 +1,9 @@
 plugins {
-    id 'java'
+    id 'java-library'
 }
 
 repositories {
     mavenCentral()
-}
-
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(11)
-    }
 }
 
 compileTestJava {
@@ -17,17 +11,12 @@ compileTestJava {
 }
 
 dependencies {
-    // Selenide
-    testImplementation("com.codeborne:selenide:6.10.2")
-    testRuntimeOnly("org.slf4j:slf4j-simple:2.0.3")
-
-    // JUnit 5
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.9.1")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.9.1")
-
+    testImplementation(
+            "com.codeborne:selenide:6.10.3",
+            "org.junit.jupiter:junit-jupiter:5.9.1"
+    )
 }
 
 test {
-    systemProperties += System.properties
     useJUnitPlatform{}
 }
