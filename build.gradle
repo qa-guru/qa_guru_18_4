@@ -18,5 +18,9 @@ dependencies {
 }
 
 test {
-    useJUnitPlatform{}
+    useJUnitPlatform{
+
+        systemProperty "env", "prod"
+
+    }
 }
